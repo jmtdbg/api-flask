@@ -24,13 +24,13 @@ api.add_resource(Residencia, '/residencias/<int:id>')
 api.add_resource(PrecoMedioAll, '/preco-medio/all')
 
 #1. Lista de todas as residências com opção de filtros via query string
-api.add_resource(ResidenciasFiltro, '/residencias')
+api.add_resource(ResidenciasFiltro, '/residencias', methods=['GET'])
 
 # 2. Média de preços por 'neighbourhood_group' e 'room_type'
-api.add_resource(PrecoMedio, '/preco-medio')
+api.add_resource(PrecoMedio, '/preco-medio', methods=['GET'])
 
 # 3. Salvar um "like" da propriedade
-api.add_resource(ResidenciaLike, '/residencias/like/<int:id>')
+api.add_resource(ResidenciaLike, '/residencias/like/<int:id>', methods=['POST'])
 
 if __name__ == '__main__':
     from sql_alchemy import banco

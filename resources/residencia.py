@@ -75,17 +75,18 @@ class ResidenciasFiltro(Resource):
 # Todas as residencias
 class Residencias(Resource):
     def get(self, page=1):
+        ##Retornando todos os resultados
         # return {'residencias': [residencia.json() for residencia in ResidenciaModel.query.all()]} 
         
-        return {'residencias': [residencia.json() for residencia in ResidenciaModel.query.limit(10).offset(0)]}  
+        ##Limitando a quantidade de resultados
+        return {'residencias': [residencia.json() for residencia in ResidenciaModel.query.limit(500).offset(0)]}  
         
-        # return {'residencias': [residencia.json() for residencia in ResidenciaModel.query.paginate(per_page=2, page=page, error_out=False)]} 
-        
+        ##Paginando os resultados 1
         # result = ResidenciaModel.query.paginate(per_page=2, page=page, error_out=False)
         # return result.json
           
 
-
+    ##Paginando os resultados 2
     # def get(self, page=1):
     #     result = ResidenciaModel.query.paginate(page, 10)
     #     return jsonify({
